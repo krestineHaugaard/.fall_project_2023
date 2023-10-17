@@ -1,0 +1,66 @@
+---
+import "../css/style.css";
+---
+
+<article>
+    <ul>
+        <li><a href="/">Forside</a></li>
+        <li><a href="/gallari">Mine hobbies</a></li>
+    </ul>
+</article>
+
+
+<style>
+
+    ul{
+        background-color: #bd8e56;
+        height: 70px;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        gap: 70px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    li{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        color: #241512;
+    }
+
+    a:hover{
+        text-decoration: underline;
+        color: #241512;
+        font-size: 21px;
+    }
+
+    a:active{
+        text-decoration: underline;
+        color: #241512;
+    }
+
+    a:visited{
+        color: #241512;
+
+    }
+
+    @media (max-width:800px) {
+        ul{
+            height: 50px;
+        }
+
+        a{
+            font-size: 18px;
+        }
+
+        a:hover{
+            font-size: 19px;
+        }
+
+    }
+
+</style>
