@@ -1,16 +1,49 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import "../css/style.css";
+import CardGallari from "../components/CardGallari.astro";
+const data = await fetch("https://sazqranxdyzmokwqggsr.supabase.co/rest/v1/fall_project",{
+    method:"GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhenFyYW54ZHl6bW9rd3FnZ3NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1MzgzMjcsImV4cCI6MjAxMzExNDMyN30.tKpEYFHM6GlVRdm3jVcD3dP6CG9kA6n5sKLQS5DA0A4"
+    },
+}).then(res=>res.json());
 ---
+
 
 <MainLayout title="Gallari">
 
     <section class="main_content">
-
+        <div>
+        {
+            data.map((card)=>{
+                return <CardGallari data={card}/>;
+            })
+        }
+        </div>
 	</section>
 
 </MainLayout>
 
 <style>
-	
+
+    div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        
+    }
+
+    section{
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 </style>
+
+
+
+
+

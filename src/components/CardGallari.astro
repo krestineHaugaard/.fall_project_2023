@@ -1,0 +1,32 @@
+---
+import "../css/style.css";
+const {data} = Astro.props;
+
+---
+    
+    <article>
+            <img src={data.image} alt={data.alt_tag}>
+            <h2>{data.overskrift}</h2>
+            <a class="link_style_1" href={`hobbyer/${data.slug}`}>Se mere</a>
+    </article>
+
+
+<style>
+    
+
+    article{
+        display: flex;
+        flex-direction: column;
+        background-color: #999a75;
+        width: 250px;
+        height: 375px;
+        align-items: center;
+        gap: 20px;
+    }
+
+    img{
+        height: 250px;
+        width: 250px;
+    }
+	
+</style>

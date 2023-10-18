@@ -3,8 +3,8 @@ import "../css/style.css";
 ---
 
 <article>
-    <div>
-        <h2></h2>
+    <div class="flex">
+        <h2>Uddanelse</h2>
         <ul>
             <li>Kea (2023-nu)</li>
             <li>Psykomotorisk terapeut Københavns Professionshøjskole (2022)</li>
@@ -17,5 +17,17 @@ import "../css/style.css";
 </article>
 
 <style>
+
+    article{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: #999a75;
+        padding: 30px 0px 30px 30px;
+        gap: 30px;
+    }
+
+    ul{
+        margin-left: 20px;
+    }
 
 </style>

@@ -1,3 +1,31 @@
 ---
 import "../css/style.css";
 ---
+
+<article>
+    <div class="flex">
+        <h2>Mine hobbies</h2>
+        <p>Jeg har altid gang i noget nyt, klik på se mere for et overblik over mit galleri fyldt med mine forskellige hobbies.</p>
+        <a class="link_style_1" href="/gallari">Se mere</a>
+    </div>
+    <img src="" alt="">
+</article>
+
+<style>
+    article{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: #78825a;
+        padding: 30px 0px 30px 30px;
+        gap: 30px;
+    }
+
+    .flex{
+        display: flex;
+        flex-direction: column;
+    }
+
+    a{
+        margin: 30px;
+    }
+</style>

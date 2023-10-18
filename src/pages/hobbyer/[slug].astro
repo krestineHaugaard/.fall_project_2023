@@ -1,0 +1,79 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import "../../css/style.css";
+export async function getStaticPaths(){
+    const data = await fetch("https://sazqranxdyzmokwqggsr.supabase.co/rest/v1/fall_project",{
+    method:"GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhenFyYW54ZHl6bW9rd3FnZ3NyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1MzgzMjcsImV4cCI6MjAxMzExNDMyN30.tKpEYFHM6GlVRdm3jVcD3dP6CG9kA6n5sKLQS5DA0A4"
+    },
+    }).then(res=>res.json());
+
+    return data.map((post)=>{
+        return {
+            params: {slug: post.slug},
+            props: {data: post},
+        };
+    });
+}
+
+const {data} = Astro.props;
+console.log(data);
+---
+
+<MainLayout title={data.overskrift}>
+
+    <section class="main_content">
+        <a class="link_style_2" href="/gallari">Tilbage</a>
+        <article class="grid">
+            <div>
+                <h2>{data.overskrift}</h2>
+                <p>{data.beskrivelse}</p>
+            </div>
+            <img src={data.image} alt={data.alt_tag}>
+        </article>
+	</section>
+
+</MainLayout>
+
+<style>
+
+    article{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 30px 0px 30px 30px;
+        gap: 30px;
+        justify-self: center;
+        background-color: #854835 ;
+        margin: 30px 0px;
+    }
+
+    .link_style_2{
+        margin: 30px;
+    }
+
+    h2{
+        margin-bottom: 15px;
+    }
+
+    p{
+        width: 600px;
+    }
+
+    @media (max-width: 900px) {
+        article{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 30px 0px 30px 30px;
+        gap: 30px;
+        justify-self: center;
+        background-color: #854835 ;
+        margin: 30px 0px;
+    }
+    p{
+        width: 400px;
+    }
+
+    }
+	
+</style>
